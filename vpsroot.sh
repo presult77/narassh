@@ -1,6 +1,6 @@
 #!/bin/bash
 #
-wget -qO- -O /etc/ssh/sshd_config https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/sshd_config;
+wget -qO- -O /etc/ssh/sshd_config https://raw.githubusercontent.com/presult77/narassh/master/sshd_config;
 systemctl restart sshd;
 clear;
 echo -e "Masukkan Password:";

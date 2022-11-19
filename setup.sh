@@ -3,8 +3,7 @@
 cd
 echo -e "\e[32;32;32m " 
 echo "================================================================="
-echo "|| Welcome To Script Automatic Install Army Phreakers Nusantara||"
-echo "|| Script Modified Reza Adrian | Whatsapp: 081214422324         ||"
+echo "|| Welcome To Script Automatic Install NARAVPN.COM||"
 echo "================================================================="
 if [ "${EUID}" -ne 0 ]; then
 		echo "You need to run this script as root"
@@ -17,10 +16,10 @@ fi
 mkdir /var/lib/crot;
 echo "IP=" >> /var/lib/crot/ipvps.conf
 #install ssh ovpn
-wget https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/ssh/ssh-vpn.sh && chmod +x ssh-vpn.sh && sed -i -e 's/\r$//' ssh-vpn.sh && screen -S ssh-vpn ./ssh-vpn.sh
+wget https://raw.githubusercontent.com/presult77/narassh/master/ssh/ssh-vpn.sh && chmod +x ssh-vpn.sh && sed -i -e 's/\r$//' ssh-vpn.sh && screen -S ssh-vpn ./ssh-vpn.sh
 # install screenfetch
 cd
-wget https://raw.githubusercontent.com/Mr-Kenyut/Debian9/master/screenfetch.sh
+wget https://raw.githubusercontent.com/presult77/narassh/master/screenfetch.sh
 mv screenfetch.sh /usr/bin/screenfetch
 chmod +x /usr/bin/screenfetch
 echo "clear" >> .profile
@@ -30,42 +29,20 @@ sudo apt-get install boxes -y
 # text warna pelangi
 sudo apt-get install ruby -y
 gem install lolcat 
-#install tampilan awal
-wget -q -O /usr/bin/welcomeadmin https://raw.githubusercontent.com/Mr-Kenyut/PremiumScript/main/welcome.sh && chmod +x /usr/bin/welcomeadmin
-
-wget https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/backup/set-br.sh && chmod +x set-br.sh && sed -i -e 's/\r$//' set-br.sh && ./set-br.sh
-# Install Slowdns Server
-wget https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/dns/slowdns/install-sldns && chmod +x install-sldns && sed -i -e 's/\r$//' install-sldns && bash install-sldns
-#install xray
-wget https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/xray/ins-xray.sh && chmod +x ins-xray.sh && sed -i -e 's/\r$//' ins-xray.sh && screen -S xray ./ins-xray.sh
-# install xray grpc
-wget https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/grpc/grpcku.sh && chmod +x grpcku.sh && sed -i -e 's/\r$//' grpcku.sh && screen -S grpc ./grpcku.sh
-wget https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/grpc/fb-grpc.sh && chmod +x fb-grpc.sh && sed -i -e 's/\r$//' fb-grpc.sh && screen -S grpcc ./fb-grpc.sh
+wget https://raw.githubusercontent.com/presult77/narassh/master/backup/set-br.sh && chmod +x set-br.sh && sed -i -e 's/\r$//' set-br.sh && ./set-br.sh
 # Websocket
-wget https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/websocket/edu.sh && chmod +x edu.sh && sed -i -e 's/\r$//' edu.sh && ./edu.sh
+wget https://raw.githubusercontent.com/presult77/narassh/master/websocket/edu.sh && chmod +x edu.sh && sed -i -e 's/\r$//' edu.sh && ./edu.sh
 # Ohp Server
-wget https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/ohp/ohp.sh && chmod +x ohp.sh && sed -i -e 's/\r$//' ohp.sh && ./ohp.sh
+wget https://raw.githubusercontent.com/presult77/narassh/master/ohp/ohp.sh && chmod +x ohp.sh && sed -i -e 's/\r$//' ohp.sh && ./ohp.sh
 
 rm -f /root/ssh-vpn.sh
-rm -f /root/ins-xray.sh
-rm -f /root/grpcku.sh
-rm -f /root/fb-grpc.sh
 rm -f /root/set-br.sh
 rm -f /root/edu.sh
 rm -f /root/ohp.sh
 rm -f /root/install
-rm -f /root/install-sldns
 #rm -f /root/ipsaya
 
 systemctl daemon-reload
-systemctl stop trojan-go
-systemctl start trojan-go
-systemctl enable trojan-go
-systemctl restart trojan-go
-systemctl stop xray.service
-systemctl start xray.service
-systemctl enable xray.service
-systemctl restart xray.service
 
 history -c
 echo "1.2" > /home/ver
