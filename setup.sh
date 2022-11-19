@@ -4,14 +4,6 @@ echo -e "\e[32;32;32m "
 echo "================================================================="
 echo "|| Welcome To Script Automatic Install NARAVPN.COM||"
 echo "================================================================="
-if [ "${EUID}" -ne 0 ]; then
-		echo "You need to run this script as root"
-		exit 1
-fi
-if [ "$(systemd-detect-virt)" == "openvz" ]; then
-		echo "OpenVZ is not supported"
-		exit 1
-fi
 mkdir /var/lib/crot;
 echo "IP=" >> /var/lib/crot/ipvps.conf
 echo " "
@@ -28,16 +20,13 @@ read -rp "Input ur domain : " -e pp
 wget https://raw.githubusercontent.com/presult77/narassh/master/ssh/ssh-vpn.sh && chmod +x ssh-vpn.sh && sed -i -e 's/\r$//' ssh-vpn.sh && screen -S ssh-vpn ./ssh-vpn.sh
 # install screenfetch
 cd
-wget https://raw.githubusercontent.com/presult77/narassh/master/screenfetch.sh
+wget https://raw.githubusercontent.com/presult77/narassh/master/ssh/screenfetch.sh
 mv screenfetch.sh /usr/bin/screenfetch
 chmod +x /usr/bin/screenfetch
 echo "clear" >> .profile
 echo "screenfetch" >> .profile
 # install gambar boxes
 sudo apt-get install boxes -y
-# text warna pelangi
-sudo apt-get install ruby -y
-gem install lolcat 
 wget https://raw.githubusercontent.com/presult77/narassh/master/backup/set-br.sh && chmod +x set-br.sh && sed -i -e 's/\r$//' set-br.sh && ./set-br.sh
 # Websocket
 wget https://raw.githubusercontent.com/presult77/narassh/master/websocket/edu.sh && chmod +x edu.sh && sed -i -e 's/\r$//' edu.sh && ./edu.sh

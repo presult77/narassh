@@ -56,17 +56,10 @@ echo -e "${NUMBER}PILIH MENU VPS DIBAWAH INI ${NUMBER}" | lolcat
 echo -e "${cyan}------------------------------------------------------------------${cyan}"
 echo -e "$cyan  1$putih. Control Panel Trial (trial-menu)" | lolcat
 echo -e "$cyan  2$putih. Control Panel SSH & OVPN (tessh)" | lolcat
-echo -e "$cyan  3$putih. Control Panel Vmess-V2ray Account(wss)" | lolcat
-echo -e "$cyan  4$putih. Control Panel Vless (vls)" | lolcat
-echo -e "$cyan  5$putih. Control Panel Trojan-GFW (trj)" | lolcat
-echo -e "$cyan  6$putih. Control Panel Trojan-GO (trjgo)" | lolcat
-echo -e "$cyan  7$putih. Control Panel GRPC(grpcc)" | lolcat
-echo -e "$cyan  8$putih. Control Panel GRPC-Fake(grpccc)" | lolcat
 echo -e "${cyan}------------------------------------------------------------------${cyan}" 
 echo -e "${NUMBER}SYSTEM MENU ${NUMBER}" | lolcat
 echo -e "${cyan}------------------------------------------------------------------${cyan}"
 echo -e "$cyan  9$putih. Add Subdomain Host For VPS (addhost)" | lolcat
-echo -e "$cyan  10$putih. Renew Certificate V2RAY (certv2ray)" | lolcat
 echo -e "$cyan  11$putih. Change Port All Account Account(changeport)" | lolcat
 echo -e "$cyan  12$putih. Autobackup Data VPS (autobackup)" | lolcat
 echo -e "$cyan  13$putih. Backup Data VPS (backup)" | lolcat
@@ -80,19 +73,8 @@ echo -e "$cyan  20$putih. Information Display System (info)" | lolcat
 echo -e "$cyan  21$putih. Info Script Auto Install (about)" | lolcat
 echo -e "$cyan  22$putih. Restart All Service (restart)" | lolcat
 echo -e "$cyan  23$putih. Set Multi Login Akun (autokill)" | lolcat
-echo -e "$cyan  24$putih. Merubah password VPS(passwd)" | lolcat
+echo -e "$cyan  24$putih. Merubah password VPS (passwd)" | lolcat
 echo -e "${cyan}------------------------------------------------------------------${cyan}" 
-echo -e "${NUMBER}DOMAIN MENU ${NUMBER}" | lolcat
-echo -e "${cyan}------------------------------------------------------------------${cyan}"
-echo -e "$cyan  25$putih. Wilcard Domain (wilcard)" | lolcat
-echo -e "$cyan  26$putih. Status Tunneling (running)" | lolcat
-echo -e "$cyan  27$putih. Auto Pointing IP (cfh)" | lolcat
-echo -e "$cyan  28$putih. Informasi Sistem Port VPN (log-install.txt)" | lolcat
-echo -e "$cyan  29$putih. Turn Off Multi Port SSH" | lolcat
-echo -e "$cyan  30$putih. Turn On Multi Port SSH" | lolcat
-echo -e "${cyan}------------------------------------------------------------------${cyan}" 
-echo -e "${NUMBER}	Status Multi Port SSH : $status_sslh  {NUMBER}" | lolcat
-echo -e "${cyan}------------------------------------------------------------------${cyan}"
 echo -e " x.)   Exit Menu"
 echo -e "${cyan}------------------------------------------------------------------${cyan}" 
 read -p " Please Input Number  [1-31 or x] :  "  num

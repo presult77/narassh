@@ -25,12 +25,6 @@ cd /root/backup
 cp passwd /etc/
 cp group /etc/
 cp -r crot /var/lib/
-cp -r sstp /home/
-cp -r xray /etc/
-cp -r trojan-go /etc/
-cp -r public_html /home/vps/
-cp crontab /etc/
-strt
 rm -rf /root/backup
 rm -f backup.zip
 echo Done

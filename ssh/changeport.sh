@@ -17,19 +17,9 @@ clear
 echo -e ""
 echo -e "════════════════════════════" | lolcat
 echo -e ""
-echo -e "[1]. Change Port OpenVPN"
+echo -e "[1]. Change Port SSH WS HTTP"
 echo -e "═════════════════" | lolcat
-echo -e "[2]. Change Port Vmess + Vless"
-echo -e "═════════════════" | lolcat
-echo -e "[3]. Change Port Trojan GFW"
-echo -e "═════════════════" | lolcat
-echo -e "[4]. Change Port Trojan GO"
-echo -e "═════════════════" | lolcat
-echo -e "[5]. Change Port Squid"
-echo -e "═════════════════" | lolcat
-echo -e "[6]. Change Port SSH WS HTTP"
-echo -e "═════════════════" | lolcat
-echo -e "[7]. Change Port SSH WS TLS / SSL"
+echo -e "[2]. Change Port SSH WS TLS / SSL"
 echo -e "═════════════════" | lolcat
 echo -e "[0]. Exit"
 echo -e ""
@@ -39,24 +29,9 @@ read -p "Select From Options [ 1-7 ] : " port
 echo -e ""
 case $port in
 1)
-portovpn
-;;
-2)
-portvlm
-;;
-3)
-porttrojan
-;;
-4)
-port-trojango
-;;
-5)
-portsquid
-;;
-6)
 portsshnontls
 ;;
-7)
+2)
 portsshws
 ;;
 0)

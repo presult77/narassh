@@ -32,7 +32,7 @@ echo -e "========================================"
 echo -e ""
 echo -e "    Username        :  $User"
 echo -e "    Days Added      :  $Days Days"
-echo -e "    Expires on      :  $Expiration_Display"
+echo -e "    Expires on      :  Check Panel"
 echo -e ""
 echo -e "========================================"
 else
