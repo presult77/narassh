@@ -32,7 +32,7 @@ wget https://raw.githubusercontent.com/presult77/narassh/master/screenfetch.sh
 mv screenfetch.sh /usr/bin/screenfetch
 chmod +x /usr/bin/screenfetch
 echo "clear" >> .profile
-echo "screenfetch | lolcat && welcomeadmin" >> .profile
+echo "screenfetch" >> .profile
 # install gambar boxes
 sudo apt-get install boxes -y
 # text warna pelangi
@@ -61,7 +61,7 @@ echo "==========================================================================
 echo "" | tee -a log-install.txt
 echo "----------------------------------------------------------------------------" | tee -a log-install.txt
 echo ""  | tee -a log-install.txt
-echo "=============================-SSH SEDANG NETWORK-===========================" | tee -a log-install.txt
+echo "=============================-NARAVPN NETWORK-===========================" | tee -a log-install.txt
 echo "" | tee -a log-install.txt
 echo "----------------------------------------------------------------------------" | tee -a log-install.txt
 echo ""  | tee -a log-install.txt

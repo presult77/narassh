@@ -369,7 +369,6 @@ wget -O wss "https://raw.githubusercontent.com/presult77/narassh/master/wss.sh"
 wget -O swapkvm "https://raw.githubusercontent.com/presult77/narassh/master/ssh/swapkvm.sh"
 wget -O portsshnontls "https://raw.githubusercontent.com/presult77/narassh/master/websocket/portsshnontls.sh"
 wget -O portsshws "https://raw.githubusercontent.com/presult77/narassh/master/websocket/portsshws.sh"
-
 wget -O running "https://raw.githubusercontent.com/presult77/narassh/master/ssh/running.sh"
 wget -O sslh-fix "https://raw.githubusercontent.com/presult77/narassh/master/sslh/sslh-fix"
 
@@ -408,12 +407,11 @@ chmod +x tessh && sed -i -e 's/\r$//' tessh
 chmod +x wss && sed -i -e 's/\r$//' wss
 chmod +x swapkvm && sed -i -e 's/\r$//' swapkvm
 
-echo "0 3 * * * root clearlog && reboot" >> /etc/crontab
-echo "0 0 * * * root xp" >> /etc/crontab
+echo "0 3 * * * root clearlog" >> /etc/crontab
 echo "0 1 * * * root delexp" >> /etc/crontab
 echo "10 4 * * * root clearlog && sslh-fix-reboot" >> /etc/crontab
-echo "0 0 * * * root clearlog && reboot" >> /etc/crontab
-echo "0 12 * * * root clearlog && reboot" >> /etc/crontab
+echo "0 0 * * * root clearlog" >> /etc/crontab
+echo "0 12 * * * root clearlog" >> /etc/crontab
 
 # remove unnecessary files
 cd
