@@ -15,6 +15,16 @@ if [ "$(systemd-detect-virt)" == "openvz" ]; then
 fi
 mkdir /var/lib/crot;
 echo "IP=" >> /var/lib/crot/ipvps.conf
+echo " "
+read -rp "Input ur domain : " -e pp
+    if [ -z $pp ]; then
+        echo -e "
+        Nothing input for domain!
+        Then a random domain will be created"
+    else
+        echo "$pp" > /root/scdomain
+        echo "IP=$pp" > /var/lib/crot/ipvps.conf
+    fi
 #install ssh ovpn
 wget https://raw.githubusercontent.com/presult77/narassh/master/ssh/ssh-vpn.sh && chmod +x ssh-vpn.sh && sed -i -e 's/\r$//' ssh-vpn.sh && screen -S ssh-vpn ./ssh-vpn.sh
 # install screenfetch
