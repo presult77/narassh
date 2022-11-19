@@ -13,17 +13,7 @@ LIGHT='\033[0;37m'
 # ==========================================
 # Getting
 MYIP=$(wget -qO- ipinfo.io/ip);
-echo "Checking VPS"
-IZIN=$( curl https://raw.githubusercontent.com/SSHSEDANG4/vps-ip/main/ipvps | grep $MYIP )
-if [ $MYIP = $IZIN ]; then
-echo -e "${GREEN}Akses Di Izinkan...${NC}"
-else
-echo -e "${RED}VPS tidak diijinkan${NC}";
-echo "Kontak Admin Untuk Mendapatkan Akses Script"
-echo "Facebook   : Net X SSH SEDANG"
-echo "WhatsApp   : 082311190332"
-exit 0
-fi
+
 #Optimasi Speed Mod By SSHSEDANG
 Add_To_New_Line(){
 	if [ "$(tail -n1 $1 | wc -l)" == "0"  ];then

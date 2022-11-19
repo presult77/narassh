@@ -1,5 +1,4 @@
 #!/bin/bash
-# AutoScriptSSH By SSHSEDANG
 # ==========================================
 # Color
 RED='\033[0;31m'
