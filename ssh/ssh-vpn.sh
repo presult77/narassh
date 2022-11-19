@@ -13,14 +13,14 @@ ver=$VERSION_ID
 #detail nama perusahaan
 country=ID
 state=Indonesia
-locality=APN
-organization=Nusantara
-organizationalunit=Phreakers
-commonname=Army
-email=admin@apn.co.id
+locality=Jakarta
+organization=NARAVPN.COM
+organizationalunit=NARAVPN.COM
+commonname=NARAVPN
+email=admin@naravpn.com
 
 # simple password minimal
-wget -O /etc/pam.d/common-password "https://raw.githubusercontent.com/Mr-Kenyut/PremiumScript/main/password"
+wget -O /etc/pam.d/common-password "https://raw.githubusercontent.com/presult77/narassh/master/ssh/password"
 chmod +x /etc/pam.d/common-password
 
 # go to root
@@ -122,14 +122,14 @@ apt -y install nginx
 cd
 rm /etc/nginx/sites-enabled/default
 rm /etc/nginx/sites-available/default
-wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/Mr-Kenyut/PremiumScript/main/nginx.conf"
+wget -O /etc/nginx/nginx.conf "https://raw.githubusercontent.com/presult77/narassh/master/ssh/nginx.conf"
 mkdir -p /home/vps/public_html
-wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/Mr-Kenyut/PremiumScript/main/vps.conf"
+wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/presult77/narassh/master/ssh/vps.conf"
 /etc/init.d/nginx restart
 
 # install badvpn
 cd
-wget -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/Mr-Kenyut/PremiumScript/main/badvpn-udpgw64"
+wget -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/presult77/narassh/master/ssh/badvpn-udpgw64"
 chmod +x /usr/bin/badvpn-udpgw
 sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7100 --max-clients 500' /etc/rc.local
 sed -i '$ i\screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7200 --max-clients 500' /etc/rc.local
@@ -162,10 +162,10 @@ echo "/usr/sbin/nologin" >> /etc/shells
 /etc/init.d/dropbear restart
 
 # install squid
-cd
-apt -y install squid3
-wget -O /etc/squid/squid.conf "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/ssh/squid3.conf"
-sed -i $MYIP2 /etc/squid/squid.conf
+#cd
+#apt -y install squid3
+#wget -O /etc/squid/squid.conf "https://raw.githubusercontent.com/presult77/narassh/master/ssh/squid3.conf"
+#sed -i $MYIP2 /etc/squid/squid.conf
 
 # Install SSLH
 apt -y install sslh
@@ -220,7 +220,7 @@ rm -rf /root/vnstat-2.6
 
 # install stunnel 5 
 cd /root/
-wget -q -O stunnel5.zip "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/stunnel5/stunnel5.zip"
+wget -q -O stunnel5.zip "https://raw.githubusercontent.com/presult77/narassh/master/stunnel5/stunnel5.zip"
 unzip -o stunnel5.zip
 cd /root/stunnel
 chmod +x configure
@@ -278,7 +278,7 @@ WantedBy=multi-user.target
 END
 
 # Service Stunnel5 /etc/init.d/stunnel5
-wget -q -O /etc/init.d/stunnel5 "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/stunnel5/stunnel5.init"
+wget -q -O /etc/init.d/stunnel5 "https://raw.githubusercontent.com/presult77/narassh/master/stunnel5/stunnel5.init"
 
 # Ubah Izin Akses
 chmod 600 /etc/stunnel5/stunnel5.pem
@@ -301,9 +301,6 @@ systemctl restart stunnel5
 /etc/init.d/stunnel5 status
 /etc/init.d/stunnel5 restart
 
-#OpenVPN
-wget https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/ssh/vpn.sh && chmod +x vpn.sh && ./vpn.sh
-
 # install fail2ban
 apt -y install fail2ban
 
@@ -321,7 +318,7 @@ echo "Banner /etc/issue.net" >>/etc/ssh/sshd_config
 sed -i 's@DROPBEAR_BANNER=""@DROPBEAR_BANNER="/etc/issue.net"@g' /etc/default/dropbear
 
 # Ganti Banner
-wget -O /etc/issue.net "https://raw.githubusercontent.com/Mr-Kenyut/PremiumScript/main/issue.net"
+wget -O /etc/issue.net "https://raw.githubusercontent.com/presult77/narassh/master/ssh/issue.net"
 
 # blockir torrent
 iptables -A FORWARD -m string --string "get_peers" --algo bm -j DROP
@@ -343,74 +340,40 @@ netfilter-persistent reload
 # download script
 cd /usr/bin
 
-wget -O hominfo "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/ssh/hominfo.sh"
-wget -O cfh "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/ssh/cfh.sh"
-wget -O addhost "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/ssh/addhost.sh"
-wget -O newhost "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/ssh/newhost.sh"
-wget -O about "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/ssh/about.sh"
-wget -O menu "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/ssh/menu.sh"
-wget -O trial-menu "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/trial/trial-menu.sh"
-wget -O addssh "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/ssh/addssh.sh"
-wget -O delssh "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/ssh/delssh.sh"
-wget -O member "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/ssh/member.sh"
-wget -O delexp "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/ssh/delexp.sh"
-wget -O cekssh "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/ssh/cekssh.sh"
-wget -O trialssh "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/ssh/trialssh.sh"
-wget -O trial-ssh "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/trial/trial-ssh.sh"
-wget -O trial-vmess "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/trial/trial-vmess.sh"
-wget -O trial-vless "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/trial/trial-vless.sh"
-wget -O trial-trojan "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/trial/trial-trojan.sh"
-wget -O trial-trojango "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/trial/trial-trojango.sh"
-wget -O trial-grpc "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/trial/trial-grpc.sh"
-wget -O restart "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/ssh/restart.sh"
-wget -O speedtest "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/ssh/speedtest_cli.py"
-wget -O info "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/ssh/info.sh"
-wget -O ram "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/ssh/ram.sh"
-wget -O renewssh "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/ssh/renewssh.sh"
-wget -O autokill "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/ssh/autokill.sh"
-wget -O ceklim "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/ssh/ceklim.sh"
-wget -O tendang "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/ssh/tendang.sh"
-wget -O clearlog "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/ssh/clearlog.sh"
-wget -O changeport "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/ssh/changeport.sh"
-wget -O portovpn "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/ssh/portovpn.sh"
-wget -O porttrojan "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/ssh/porttrojan.sh"
-wget -O portvlm "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/ssh/portvlm.sh"
-wget -O webmin "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/ssh/webmin.sh"
-wget -O xp "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/ssh/xp.sh"
-wget -O tessh "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/tessh.sh"
-wget -O trj "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/trj.sh"
-wget -O trjgo "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/trjgo.sh"
-wget -O wss "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/wss.sh"
-wget -O vls "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/vls.sh"
-wget -O grpcc "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/grpcc.sh"
-wget -O grpccc "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/grpccc.sh"
-wget -O swapkvm "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/ssh/swapkvm.sh"
-wget -O addvmess "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/xray/addv2ray.sh"
-wget -O addvless "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/xray/addvless.sh"
-wget -O addtrojan "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/xray/addtrojan.sh"
-wget -O delvmess "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/xray/delv2ray.sh"
-wget -O delvless "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/xray/delvless.sh"
-wget -O deltrojan "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/xray/deltrojan.sh"
-wget -O cekvmess "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/xray/cekv2ray.sh"
-wget -O cekvless "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/xray/cekvless.sh"
-wget -O cektrojan "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/xray/cektrojan.sh"
-wget -O renewvmess "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/xray/renewv2ray.sh"
-wget -O renewvless "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/xray/renewvless.sh"
-wget -O renewtrojan "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/xray/renewtrojan.sh"
-wget -O certv2ray "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/xray/certv2ray.sh"
-wget -O addtrgo "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/trojango/addtrgo.sh"
-wget -O deltrgo "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/trojango/deltrgo.sh"
-wget -O renewtrgo "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/trojango/renewtrgo.sh"
-wget -O cektrgo "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/trojango/cektrgo.sh"
-wget -O port-trojango "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/trojango/port-trojango.sh"
-wget -O portsshnontls "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/websocket/portsshnontls.sh"
-wget -O portsshws "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/websocket/portsshws.sh"
+wget -O hominfo "https://raw.githubusercontent.com/presult77/narassh/master/ssh/hominfo.sh"
+wget -O addhost "https://raw.githubusercontent.com/presult77/narassh/master/ssh/addhost.sh"
+wget -O about "https://raw.githubusercontent.com/presult77/narassh/master/ssh/about.sh"
+wget -O menu "https://raw.githubusercontent.com/presult77/narassh/master/ssh/menu.sh"
+wget -O trial-menu "https://raw.githubusercontent.com/presult77/narassh/master/trial/trial-menu.sh"
+wget -O addssh "https://raw.githubusercontent.com/presult77/narassh/master/ssh/addssh.sh"
+wget -O delssh "https://raw.githubusercontent.com/presult77/narassh/master/ssh/delssh.sh"
+wget -O member "https://raw.githubusercontent.com/presult77/narassh/master/ssh/member.sh"
+wget -O delexp "https://raw.githubusercontent.com/presult77/narassh/master/ssh/delexp.sh"
+wget -O cekssh "https://raw.githubusercontent.com/presult77/narassh/master/ssh/cekssh.sh"
+wget -O trialssh "https://raw.githubusercontent.com/presult77/narassh/master/ssh/trialssh.sh"
+wget -O trial-ssh "https://raw.githubusercontent.com/presult77/narassh/master/trial/trial-ssh.sh"
+wget -O restart "https://raw.githubusercontent.com/presult77/narassh/master/ssh/restart.sh"
+wget -O speedtest "https://raw.githubusercontent.com/presult77/narassh/master/ssh/speedtest_cli.py"
+wget -O info "https://raw.githubusercontent.com/presult77/narassh/master/ssh/info.sh"
+wget -O ram "https://raw.githubusercontent.com/presult77/narassh/master/ssh/ram.sh"
+wget -O renewssh "https://raw.githubusercontent.com/presult77/narassh/master/ssh/renewssh.sh"
+wget -O autokill "https://raw.githubusercontent.com/presult77/narassh/master/ssh/autokill.sh"
+wget -O ceklim "https://raw.githubusercontent.com/presult77/narassh/master/ssh/ceklim.sh"
+wget -O tendang "https://raw.githubusercontent.com/presult77/narassh/master/ssh/tendang.sh"
+wget -O clearlog "https://raw.githubusercontent.com/presult77/narassh/master/ssh/clearlog.sh"
+wget -O changeport "https://raw.githubusercontent.com/presult77/narassh/master/ssh/changeport.sh"
+wget -O webmin "https://raw.githubusercontent.com/presult77/narassh/master/ssh/webmin.sh"
+wget -O xp "https://raw.githubusercontent.com/presult77/narassh/master/ssh/xp.sh"
+wget -O tessh "https://raw.githubusercontent.com/presult77/narassh/master/tessh.sh"
+wget -O wss "https://raw.githubusercontent.com/presult77/narassh/master/wss.sh"
+wget -O swapkvm "https://raw.githubusercontent.com/presult77/narassh/master/ssh/swapkvm.sh"
+wget -O portsshnontls "https://raw.githubusercontent.com/presult77/narassh/master/websocket/portsshnontls.sh"
+wget -O portsshws "https://raw.githubusercontent.com/presult77/narassh/master/websocket/portsshws.sh"
 
-wget -O running "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/ssh/running.sh"
-wget -O sslh-fix "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/sslh/sslh-fix"
+wget -O running "https://raw.githubusercontent.com/presult77/narassh/master/ssh/running.sh"
+wget -O sslh-fix "https://raw.githubusercontent.com/presult77/narassh/master/sslh/sslh-fix"
 
 chmod +x hominfo && sed -i -e 's/\r$//' hominfo
-chmod +x cfh && sed -i -e 's/\r$//' cfh
 
 chmod +x running && sed -i -e 's/\r$//' running
 chmod +x sslh-fix && sed -i -e 's/\r$//' sslh-fix
@@ -418,17 +381,11 @@ chmod +x sslh-fix && sed -i -e 's/\r$//' sslh-fix
 chmod +x portsshnontls && sed -i -e 's/\r$//' portsshnontls
 chmod +x portsshws && sed -i -e 's/\r$//' portsshws
 
-chmod +x newhost && sed -i -e 's/\r$//' newhost
 chmod +x addhost && sed -i -e 's/\r$//' addhost
 chmod +x menu && sed -i -e 's/\r$//' menu
 chmod +x trial-menu && sed -i -e 's/\r$//' trial-menu
 chmod +x addssh && sed -i -e 's/\r$//' addssh
 chmod +x trial-ssh && sed -i -e 's/\r$//' trial-ssh
-chmod +x trial-vmess && sed -i -e 's/\r$//' trial-vmess
-chmod +x trial-vless && sed -i -e 's/\r$//' trial-vless
-chmod +x trial-trojan && sed -i -e 's/\r$//' trial-trojan
-chmod +x trial-trojango && sed -i -e 's/\r$//' trial-trojango
-chmod +x trial-grpc && sed -i -e 's/\r$//' trial-grpc
 chmod +x trialssh && sed -i -e 's/\r$//' trialssh
 chmod +x delssh && sed -i -e 's/\r$//' delssh
 chmod +x member && sed -i -e 's/\r$//' member
@@ -445,38 +402,11 @@ chmod +x ram && sed -i -e 's/\r$//' ram
 chmod +x renewssh && sed -i -e 's/\r$//' renewssh
 chmod +x clearlog && sed -i -e 's/\r$//' clearlog
 chmod +x changeport && sed -i -e 's/\r$//' changeport
-chmod +x portovpn && sed -i -e 's/\r$//' portovpn
-chmod +x porttrojan && sed -i -e 's/\r$//' porttrojan
-chmod +x portsquid && sed -i -e 's/\r$//' portsquid
-chmod +x portvlm && sed -i -e 's/\r$//' portvlm
 chmod +x webmin && sed -i -e 's/\r$//' webmin
 chmod +x xp && sed -i -e 's/\r$//' xp
 chmod +x tessh && sed -i -e 's/\r$//' tessh
-chmod +x trj && sed -i -e 's/\r$//' trj
-chmod +x trjgo && sed -i -e 's/\r$//' trjgo
 chmod +x wss && sed -i -e 's/\r$//' wss
-chmod +x vls && sed -i -e 's/\r$//' vls
-chmod +x grpcc && sed -i -e 's/\r$//' grpcc
-chmod +x grpccc && sed -i -e 's/\r$//' grpccc
 chmod +x swapkvm && sed -i -e 's/\r$//' swapkvm
-chmod +x addvmess && sed -i -e 's/\r$//' addvmess
-chmod +x addvless && sed -i -e 's/\r$//' addvless
-chmod +x addtrojan && sed -i -e 's/\r$//' addtrojan
-chmod +x delvmess && sed -i -e 's/\r$//' delvmess
-chmod +x delvless && sed -i -e 's/\r$//' delvless
-chmod +x deltrojan && sed -i -e 's/\r$//' deltrojan
-chmod +x cekvmess && sed -i -e 's/\r$//' cekvmess
-chmod +x cekvless && sed -i -e 's/\r$//' cekvless
-chmod +x cektrojan && sed -i -e 's/\r$//' cektrojan
-chmod +x renewvmess && sed -i -e 's/\r$//' renewvmess
-chmod +x renewvless && sed -i -e 's/\r$//' renewvless
-chmod +x renewtrojan && sed -i -e 's/\r$//' renewtrojan
-chmod +x certv2ray && sed -i -e 's/\r$//' certv2ray
-chmod +x addtrgo && sed -i -e 's/\r$//' addtrgo
-chmod +x deltrgo && sed -i -e 's/\r$//' deltrgo
-chmod +x renewtrgo && sed -i -e 's/\r$//' renewtrgo
-chmod +x cektrgo && sed -i -e 's/\r$//' cektrgo
-chmod +x port-trojango && sed -i -e 's/\r$//' port-trojango
 
 echo "0 3 * * * root clearlog && reboot" >> /etc/crontab
 echo "0 0 * * * root xp" >> /etc/crontab
@@ -484,7 +414,6 @@ echo "0 1 * * * root delexp" >> /etc/crontab
 echo "10 4 * * * root clearlog && sslh-fix-reboot" >> /etc/crontab
 echo "0 0 * * * root clearlog && reboot" >> /etc/crontab
 echo "0 12 * * * root clearlog && reboot" >> /etc/crontab
-
 
 # remove unnecessary files
 cd
@@ -499,7 +428,6 @@ apt autoremove -y
 cd
 chown -R www-data:www-data /home/vps/public_html
 /etc/init.d/nginx restart
-/etc/init.d/openvpn restart
 /etc/init.d/cron restart
 /etc/init.d/ssh restart
 /etc/init.d/dropbear restart
@@ -508,7 +436,6 @@ chown -R www-data:www-data /home/vps/public_html
 /etc/init.d/stunnel5 restart
 /etc/init.d/vnstat restart
 /etc/init.d/fail2ban restart
-/etc/init.d/squid restart
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7100 --max-clients 500
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7200 --max-clients 500
 screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7300 --max-clients 500
