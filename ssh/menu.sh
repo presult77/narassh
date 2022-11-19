@@ -53,7 +53,7 @@ IPVPS=$(curl -s ipv4.icanhazip.com )
 	
 	
 echo -e "${cyan}------------------------------------------------------------------${cyan}" 
-echo -e "${NUMBER}PILIH MENU VPS DIBAWAH JURAGAN ${NUMBER}" | lolcat
+echo -e "${NUMBER}PILIH MENU VPS DIBAWAH INI ${NUMBER}" | lolcat
 echo -e "${cyan}------------------------------------------------------------------${cyan}"
 echo -e "$cyan  1$putih. Control Panel Trial (trial-menu)" | lolcat
 echo -e "$cyan  2$putih. Control Panel SSH & OVPN (tessh)" | lolcat
