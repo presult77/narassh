@@ -54,8 +54,6 @@ echo -e "SSH Websocket HTTP  : 8880" | lolcat
 echo -e "═══════════════════════" | lolcat
 echo -e "BadVPN UDPGW        : 7100,7200,7300" | lolcat
 echo -e "═══════════════════════" | lolcat
-echo -e "SNI SSL/TLS         : ${bug}" | lolcat
-echo -e "═══════════════════════" | lolcat
 echo -e "PAYLOAD WS HTTP" | lolcat
 echo -e "═══════════════════════" | lolcat
 echo -e "GET / HTTP/1.1[crlf]Host: ${domain}[crlf]Connection: Keep-Alive[crlf]User-Agent: [ua][crlf]Upgrade: websocket[crlf][crlf]" | lolcat
@@ -67,4 +65,3 @@ echo -e "═══════════════════════" 
 echo -e "Created             : $hariini" | lolcat
 echo -e "Expired             : $expi" | lolcat
 echo -e "═══════════════════════" | lolcat
-fi
