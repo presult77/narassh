@@ -1,7 +1,6 @@
 #!/bin/bash
-#Scripter Reza Adrian
 cd
-echo -e "\e[32;32;32m " 
+echo -e "\e[32;32;32m "
 echo "================================================================="
 echo "|| Welcome To Script Automatic Install NARAVPN.COM||"
 echo "================================================================="
