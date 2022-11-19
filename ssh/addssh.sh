@@ -50,7 +50,7 @@ echo -e "OHP SSH             : 8181" | lolcat
 echo -e "OHP Dropbear        : 8282" | lolcat
 echo -e "═══════════════════════" | lolcat
 echo -e "SSH Websocket SSL   : 443" | lolcat
-echo -e "SSH Websocket HTTP  : 8880" | lolcat
+echo -e "SSH Websocket HTTP  : 80" | lolcat
 echo -e "═══════════════════════" | lolcat
 echo -e "BadVPN UDPGW        : 7100,7200,7300" | lolcat
 echo -e "═══════════════════════" | lolcat
