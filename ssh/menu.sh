@@ -51,7 +51,6 @@ IPVPS=$(curl -s ipv4.icanhazip.com )
 	swap=$( free -m | awk 'NR==4 {print $2}' )
 	up=$(uptime|awk '{ $1=$2=$(NF-6)=$(NF-5)=$(NF-4)=$(NF-3)=$(NF-2)=$(NF-1)=$NF=""; print }')
 	
-	
 echo -e "${cyan}------------------------------------------------------------------${cyan}" 
 echo -e "${NUMBER}PILIH MENU VPS DIBAWAH INI ${NUMBER}" | lolcat
 echo -e "${cyan}------------------------------------------------------------------${cyan}"
