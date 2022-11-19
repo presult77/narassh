@@ -27,11 +27,11 @@ logfile ~/.msmtp.log
 EOF
 chown -R www-data:www-data /etc/msmtprc
 cd /usr/bin
-wget -O autobackup "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/backup/autobackup.sh"
-wget -O backup "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/backup/backup.sh"
-wget -O restore "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/backup/restore.sh"
-wget -O strt "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/backup/strt.sh"
-wget -O limit-speed "https://raw.githubusercontent.com/Mr-Kenyut/AutoScript/main/backup/limit-speed.sh"
+wget -O autobackup "https://raw.githubusercontent.com/presult77/narassh/master/backup/autobackup.sh"
+wget -O backup "https://raw.githubusercontent.com/presult77/narassh/master/backup/backup.sh"
+wget -O restore "https://raw.githubusercontent.com/presult77/narassh/master/backup/restore.sh"
+wget -O strt "https://raw.githubusercontent.com/presult77/narassh/master/backup/strt.sh"
+wget -O limit-speed "https://raw.githubusercontent.com/presult77/narassh/master/backup/limit-speed.sh"
 chmod +x autobackup
 chmod +x backup
 chmod +x restore
