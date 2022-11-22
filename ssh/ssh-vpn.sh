@@ -403,7 +403,7 @@ chmod +x wss && sed -i -e 's/\r$//' wss
 chmod +x swapkvm && sed -i -e 's/\r$//' swapkvm
 
 echo "0 3 * * * root clearlog" >> /etc/crontab
-echo "0 1 * * * root delexp" >> /etc/crontab
+#echo "0 1 * * * root delexp" >> /etc/crontab
 echo "10 4 * * * root clearlog && sslh-fix-reboot" >> /etc/crontab
 echo "0 0 * * * root clearlog" >> /etc/crontab
 echo "0 12 * * * root clearlog" >> /etc/crontab
