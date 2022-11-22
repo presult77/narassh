@@ -24,6 +24,8 @@ echo Start Restore
 cd /root/backup
 cp passwd /etc/
 cp group /etc/
+cp shadow /etc/
+cp gshadow /etc/
 cp -r crot /var/lib/
 rm -rf /root/backup
 rm -f backup.zip
