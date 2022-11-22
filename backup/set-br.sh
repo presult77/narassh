@@ -2,7 +2,7 @@
 #install backup
 curl https://rclone.org/install.sh | bash
 printf "q\n" | rclone config
-wget -O /root/.config/rclone/rclone.conf "https://raw.githubusercontent.com/presult77/script/main/backup/rclone.conf"
+wget -O /root/.config/rclone/rclone.conf "https://raw.githubusercontent.com/presult77/narassh/masterbackup/rclone.conf"
 git clone  https://github.com/magnific0/wondershaper.git
 cd wondershaper
 make install
@@ -27,10 +27,10 @@ EOF
 
 chown -R www-data:www-data /etc/msmtprc
 cd /usr/local/sbin
-wget -O autobackup "https://raw.githubusercontent.com/presult77/script/main/backup/autobackup.sh"
-wget -O backup "https://raw.githubusercontent.com/presult77/script/main/backup/backup.sh"
-wget -O bckp "https://raw.githubusercontent.com/presult77/script/main/backup/bckp.sh"
-wget -O restore "https://raw.githubusercontent.com/presult77/script/main/backup/restore.sh"
+wget -O autobackup "https://raw.githubusercontent.com/presult77/narassh/master/backup/autobackup.sh"
+wget -O backup "https://raw.githubusercontent.com/presult77/narassh/master/backup/backup.sh"
+wget -O bckp "https://raw.githubusercontent.com/presult77/narassh/master/backup/bckp.sh"
+wget -O restore "https://raw.githubusercontent.com/presult77/narassh/master/backup/restore.sh"
 chmod +x autobackup
 chmod +x backup
 chmod +x bckp
