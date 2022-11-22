@@ -189,8 +189,7 @@ RUN=yes
 # systemd users: don't forget to modify /lib/systemd/system/sslh.service
 DAEMON=/usr/sbin/sslh
 
-DAEMON_OPTS="--user sslh --listen 0.0.0.0:443 --ssl 127.0.0.1:222 --ssh 127.0.0.1:445 --pidfile /var/run/sslh/sslh.pid -n"
-
+DAEMON_OPTS="--user sslh --listen 0.0.0.0:443 --ssl 127.0.0.1:777 --ssh 127.0.0.1:109 --http 127.0.0.1:80 --pidfile /var/run/sslh/sslh.pid -n"
 END
 
 # Restart Service SSLH
@@ -245,8 +244,8 @@ accept = 445
 connect = 127.0.0.1:109
 
 [openssh]
-accept = 222
-connect = 127.0.0.1:4433
+accept = 777
+connect = 127.0.0.1:443
 
 END
 
