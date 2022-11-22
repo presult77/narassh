@@ -15,7 +15,6 @@ MYIP=$(wget -qO- ipinfo.io/ip);
 domain=$(cat /root/scdomain)
 clear
 read -p "Username : " Login
-read -p "Password : " Pass
 read -p "Expired (Days): " masaaktif
 
 IP=$(wget -qO- ipinfo.io/ip);
@@ -27,6 +26,8 @@ systemctl restart ws-tls
 systemctl restart ws-nontls
 systemctl restart ssh-ohp
 systemctl restart dropbear-ohp
+random=`</dev/urandom tr -dc X-Z0-9 | head -c4`
+Pass=$Login$random
 useradd -e `date -d "$masaaktif days" +"%Y-%m-%d"` -s /bin/false -M $Login
 expi="$(chage -l $Login | grep "Account expires" | awk -F": " '{print $2}')"
 echo -e "$Pass\n$Pass\n"|passwd $Login &> /dev/null
@@ -34,7 +35,7 @@ hariini=`date -d "0 days" +"%Y-%m-%d"`
 expi=`date -d "$masaaktif days" +"%Y-%m-%d"`
 echo -e ""
 echo -e "═══════════════════════" | lolcat
-echo -e "Trial SSH Premium"
+echo -e "Informasi SSH Premium"
 echo -e "═══════════════════════" | lolcat
 echo -e "IP/Host     : $IP" | lolcat
 echo -e "Domain      : $domain" | lolcat
