@@ -245,10 +245,6 @@ accept = 445
 connect = 127.0.0.1:109
 
 [openssh]
-accept = 777
-connect = 127.0.0.1:22
-
-[wstls]
 accept = 222
 connect = 127.0.0.1:4433
 
