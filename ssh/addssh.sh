@@ -22,10 +22,6 @@ ws="$(cat ~/log-install.txt | grep -w "Websocket TLS" | cut -d: -f2|sed 's/ //g'
 ws2="$(cat ~/log-install.txt | grep -w "Websocket None TLS" | cut -d: -f2|sed 's/ //g')"
 ssl="$(cat ~/log-install.txt | grep -w "Stunnel5" | cut -d: -f2)"
 clear
-systemctl restart ws-tls
-systemctl restart ws-nontls
-systemctl restart ssh-ohp
-systemctl restart dropbear-ohp
 random=`</dev/urandom tr -dc X-Z0-9 | head -c4`
 Pass=$Login$random
 useradd -e `date -d "$masaaktif days" +"%Y-%m-%d"` -s /bin/false -M $Login
@@ -37,8 +33,7 @@ echo -e ""
 echo -e "═══════════════════════" | lolcat
 echo -e "Informasi SSH Premium"
 echo -e "═══════════════════════" | lolcat
-echo -e "IP/Host     : $IP" | lolcat
-echo -e "Domain      : $domain" | lolcat
+echo -e "Hostname    : $domain" | lolcat
 echo -e "Username    : $Login" | lolcat
 echo -e "Password    : $Pass" | lolcat
 echo -e "═══════════════════════" | lolcat
@@ -65,3 +60,8 @@ echo -e "═══════════════════════" 
 echo -e "Created     : $hariini" | lolcat
 echo -e "Expired     : $expi" | lolcat
 echo -e "═══════════════════════" | lolcat
+sleep 2
+systemctl restart ws-tls
+systemctl restart ws-nontls
+systemctl restart ssh-ohp
+systemctl restart dropbear-ohp
