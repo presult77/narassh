@@ -29,9 +29,7 @@ chown -R www-data:www-data /etc/msmtprc
 cd /usr/local/sbin
 wget -O autobackup "https://raw.githubusercontent.com/presult77/narassh/master/backup/autobackup.sh"
 wget -O backup "https://raw.githubusercontent.com/presult77/narassh/master/backup/backup.sh"
-wget -O bckp "https://raw.githubusercontent.com/presult77/narassh/master/backup/bckp.sh"
 wget -O restore "https://raw.githubusercontent.com/presult77/narassh/master/backup/restore.sh"
 chmod +x autobackup
 chmod +x backup
-chmod +x bckp
 chmod +x restore
