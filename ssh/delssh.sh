@@ -12,7 +12,6 @@ LIGHT='\033[0;37m'
 # ==========================================
 # Getting
 MYIP=$(wget -qO- ipinfo.io/ip);
-echo "Checking VPS"
 clear
 bash member
 read -p "Username SSH to Delete : " Pengguna
