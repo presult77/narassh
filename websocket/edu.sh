@@ -3,14 +3,14 @@
 # ==========================================
 
 # Getting Proxy Template
-wget -q -O /usr/local/bin/ws-nontls https://raw.githubusercontent.com/presult77/narassh/master/websocket/ws-nontls
-chmod +x /usr/local/bin/ws-nontls
+wget -q -O /usr/local/bin/ssh-ws https://raw.githubusercontent.com/presult77/narassh/master/websocket/websocket.py
+chmod +x /usr/local/bin/ssh-ws
 
 # Installing Service
-cat > /etc/systemd/system/ws-nontls.service << END
+cat > /etc/systemd/system/ssh-ws.service << END
 [Unit]
-Description=NARAVPN.COM
-Documentation=NARAVPN.COM
+Description=NARAVPN
+Documentation=NARAVPN
 After=network.target nss-lookup.target
 
 [Service]
@@ -19,7 +19,7 @@ User=root
 CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
 AmbientCapabilities=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
 NoNewPrivileges=true
-ExecStart=/usr/bin/python -O /usr/local/bin/ws-nontls 80
+ExecStart=/usr/bin/python -O /usr/local/bin/ssh-ws 80
 Restart=on-failure
 
 [Install]
@@ -27,33 +27,5 @@ WantedBy=multi-user.target
 END
 
 systemctl daemon-reload
-systemctl enable ws-nontls
-systemctl restart ws-nontls
-
-# Getting Proxy Template
-wget -q -O /usr/local/bin/ws-tls https://raw.githubusercontent.com/presult77/narassh/master/websocket/ws-tls
-chmod +x /usr/local/bin/ws-tls
-
-# Installing Service
-cat > /etc/systemd/system/ws-tls.service << END
-[Unit]
-Description=NARAVPN.COM
-Documentation=NARAVPN.COM
-After=network.target nss-lookup.target
-
-[Service]
-Type=simple
-User=root
-CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
-AmbientCapabilities=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
-NoNewPrivileges=true
-ExecStart=/usr/bin/python -O /usr/local/bin/ws-tls 4433
-Restart=on-failure
-
-[Install]
-WantedBy=multi-user.target
-END
-
-systemctl daemon-reload
-systemctl enable ws-tls
-systemctl restart ws-tls
+systemctl enable ssh-ws
+systemctl restart ssh-ws
