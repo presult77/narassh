@@ -61,7 +61,5 @@ echo -e "Created     : $hariini" | lolcat
 echo -e "Expired     : $expi" | lolcat
 echo -e "═══════════════════════" | lolcat
 sleep 2
-systemctl restart ws-tls
-systemctl restart ws-nontls
 systemctl restart ssh-ohp
 systemctl restart dropbear-ohp
