@@ -26,6 +26,7 @@ EOF
 fi
 clear
 echo "Mohon Menunggu , Proses Backup sedang berlangsung !!"
+cd /root
 rm -rf /root/backup
 mkdir /root/backup
 cp /etc/passwd backup/
@@ -33,7 +34,6 @@ cp /etc/group backup/
 cp /etc/shadow backup/
 cp /etc/gshadow backup/
 cp -r /var/lib/crot/ backup/crot
-cd /root
 zip -r $domain-$date.zip backup > /dev/null 2>&1
 rclone copy /root/$domain-$date.zip dr:backup/
 url=$(rclone link dr:backup/$domain-$date.zip)

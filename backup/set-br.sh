@@ -2,7 +2,7 @@
 #install backup
 curl https://rclone.org/install.sh | bash
 printf "q\n" | rclone config
-wget -O /root/.config/rclone/rclone.conf "https://raw.githubusercontent.com/presult77/narassh/masterbackup/rclone.conf"
+wget -O /root/.config/rclone/rclone.conf "https://raw.githubusercontent.com/presult77/narassh/master/backup/rclone.conf"
 git clone  https://github.com/magnific0/wondershaper.git
 cd wondershaper
 make install
