@@ -19,7 +19,4 @@ systemctl restart dropbear-ohp
 /etc/init.d/fail2ban restart
 /etc/init.d/cron restart
 /etc/init.d/nginx restart
-screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7100 --max-clients 1000
-screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7200 --max-clients 1000
-screen -dmS badvpn badvpn-udpgw --listen-addr 127.0.0.1:7300 --max-clients 1000
 echo -e "Restart All Service Berhasil"

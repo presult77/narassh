@@ -13,19 +13,6 @@ LIGHT='\033[0;37m'
 # ==========================================
 # Getting
 MYIP=$(wget -qO- ipinfo.io/ip);
-echo "Checking VPS"
-sleep 1
-echo "Cek Izin Akses Script"
-IZIN=$( curl http://akses.jagoanneon-premium.xyz:81/akses | grep $MYIP )
-if [ $MYIP = $IZIN ]; then
-echo -e "${GREEN}Akses Di Izinkan...${NC}"
-else
-echo -e "${RED}VPS tidak diijinkan${NC}";
-echo "Kontak Admin Untuk Mendapatkan Akses Script"
-echo "Facebook   : Generasi Ronggolawe Tuban"
-echo "WhatsApp   : 083857684916"
-exit 0
-fi
 clear
 dd if=/dev/zero of=/swapfile1 bs=1024 count=524288
 dd if=/dev/zero of=/swapfile2 bs=1024 count=524288
