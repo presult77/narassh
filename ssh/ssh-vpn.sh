@@ -106,6 +106,7 @@ apt install libssl-dev -y
 apt install libssl1.0-dev -y
 apt install dos2unix -y
 apt install toilet -y
+apt install cpulimit -y
 
 # set time GMT +7
 ln -fs /usr/share/zoneinfo/Asia/Jakarta /etc/localtime
@@ -358,6 +359,7 @@ wget -O portsshnontls "https://raw.githubusercontent.com/presult77/narassh/maste
 wget -O portsshws "https://raw.githubusercontent.com/presult77/narassh/master/websocket/portsshws.sh"
 wget -O running "https://raw.githubusercontent.com/presult77/narassh/master/ssh/running.sh"
 wget -O sslh-fix "https://raw.githubusercontent.com/presult77/narassh/master/sslh/sslh-fix"
+wget -O limit-bad "https://raw.githubusercontent.com/presult77/narassh/master/ssh/limit-bad.sh"
 
 chmod +x hominfo && sed -i -e 's/\r$//' hominfo
 
@@ -379,6 +381,7 @@ chmod +x delexp && sed -i -e 's/\r$//' delexp
 chmod +x cekssh && sed -i -e 's/\r$//' cekssh
 chmod +x restart && sed -i -e 's/\r$//' restart
 chmod +x speedtest
+chmod +x limit-bad
 chmod +x info
 chmod +x about
 chmod +x autokill && sed -i -e 's/\r$//' autokill
