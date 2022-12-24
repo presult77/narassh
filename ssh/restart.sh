@@ -18,5 +18,4 @@ systemctl restart dropbear-ohp
 /etc/init.d/stunnel5 restart
 /etc/init.d/fail2ban restart
 /etc/init.d/cron restart
-/etc/init.d/nginx restart
 echo -e "Restart All Service Berhasil"
