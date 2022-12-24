@@ -405,6 +405,8 @@ echo "0 12 * * * root clearlog" >> /etc/crontab
 echo "@reboot root nohup /usr/bin/badvpn-udpgw --listen-addr 127.0.0.1:7100 --max-clients 500 >/dev/null 2>&1 &" >> /etc/crontab
 echo "@reboot root nohup /usr/bin/badvpn-udpgw --listen-addr 127.0.0.1:7200 --max-clients 500 >/dev/null 2>&1 &" >> /etc/crontab
 echo "@reboot root nohup /usr/bin/badvpn-udpgw --listen-addr 127.0.0.1:7300 --max-clients 500 >/dev/null 2>&1 &" >> /etc/crontab
+echo "@reboot root /usr/bin/limit-bad" >> /etc/crontab
+
 
 # remove unnecessary files
 cd
