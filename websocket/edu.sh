@@ -27,7 +27,7 @@ WantedBy=multi-user.target
 END
 
 systemctl daemon-reload
-systemctl enable ssh-ws80
-systemctl enable ssh-ws8080
-systemctl restart ssh-ws80
-systemctl restart ssh-ws8080
+systemctl enable ssh-ws@80
+systemctl enable ssh-ws@8080
+systemctl restart ssh-ws@80
+systemctl restart ssh-ws@8080
