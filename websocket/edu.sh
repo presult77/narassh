@@ -7,7 +7,7 @@ wget -q -O /usr/local/bin/ssh-ws https://raw.githubusercontent.com/presult77/nar
 chmod +x /usr/local/bin/ssh-ws
 
 # Installing Service
-cat > /etc/systemd/system/ssh-ws.service << END
+cat > /etc/systemd/system/ssh-ws@.service << END
 [Unit]
 Description=NARAVPN
 Documentation=NARAVPN
@@ -19,7 +19,7 @@ User=root
 CapabilityBoundingSet=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
 AmbientCapabilities=CAP_NET_ADMIN CAP_NET_BIND_SERVICE
 NoNewPrivileges=true
-ExecStart=/usr/bin/python -O /usr/local/bin/ssh-ws 80
+ExecStart=/usr/bin/python -O /usr/local/bin/ssh-ws %i
 Restart=on-failure
 
 [Install]
@@ -27,5 +27,7 @@ WantedBy=multi-user.target
 END
 
 systemctl daemon-reload
-systemctl enable ssh-ws
-systemctl restart ssh-ws
+systemctl enable ssh-ws80
+systemctl enable ssh-ws8080
+systemctl restart ssh-ws80
+systemctl restart ssh-ws8080
