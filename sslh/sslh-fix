@@ -9,12 +9,6 @@ rm restart
 rm -r sslh-fix-reboot
 rm -rf sslh-fix-reboot
 rm sslh-fix-reboot
-rm -r updatemenu
-rm -rf updatemenu
-rm updatemenu
-rm -r menu
-rm -rf menu
-rm updatemenu
 
 cd /usr/bin
 wget -O sslh-fix-reboot "https://raw.githubusercontent.com/presult77/narassh/master/sslh/sslh-fix-reboot.sh"
