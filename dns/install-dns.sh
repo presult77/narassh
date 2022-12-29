@@ -36,6 +36,7 @@ chmod +x /etc/slowdns/server.key
 chmod +x /etc/slowdns/server.pub
 chmod +x /etc/slowdns/sldns-server
 chmod +x /etc/slowdns/sldns-client
+
 #install client-sldns.service
 cd
 cat > /etc/systemd/system/client-sldns.service << END
