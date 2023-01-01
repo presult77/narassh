@@ -356,13 +356,10 @@ wget -O fixbad "https://raw.githubusercontent.com/presult77/narassh/master/ssh/f
 
 
 chmod +x hominfo && sed -i -e 's/\r$//' hominfo
-
 chmod +x running && sed -i -e 's/\r$//' running
 chmod +x sslh-fix && sed -i -e 's/\r$//' sslh-fix
-
 chmod +x portsshnontls && sed -i -e 's/\r$//' portsshnontls
 chmod +x portsshws && sed -i -e 's/\r$//' portsshws
-
 chmod +x addhost && sed -i -e 's/\r$//' addhost
 chmod +x menu && sed -i -e 's/\r$//' menu
 chmod +x trial-menu && sed -i -e 's/\r$//' trial-menu
