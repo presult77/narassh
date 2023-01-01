@@ -129,14 +129,8 @@ wget -O /etc/nginx/conf.d/vps.conf "https://raw.githubusercontent.com/presult77/
 
 # install badvpn
 cd
-wget -O /usr/bin/badvpn-udpgw "https://raw.githubusercontent.com/presult77/narassh/master/ssh/badvpn-udpgw64"
+wget -O /usr/bin/badvpn-udpgw "https://github.com/potatonc/ScriptAutoInstallPotato/raw/master/badvpn/badvpn-udpgw"
 chmod +x /usr/bin/badvpn-udpgw
-sed -i '$ i\nohup /usr/bin/badvpn-udpgw --listen-addr 127.0.0.1:7100 --max-clients 500 >/dev/null 2>&1 &' /etc/rc.local
-sed -i '$ i\nohup /usr/bin/badvpn-udpgw --listen-addr 127.0.0.1:73200 --max-clients 500 >/dev/null 2>&1 &' /etc/rc.local
-sed -i '$ i\nohup /usr/bin/badvpn-udpgw --listen-addr 127.0.0.1:7300 --max-clients 500 >/dev/null 2>&1 &' /etc/rc.local
-nohup /usr/bin/badvpn-udpgw --listen-addr 127.0.0.1:7100 --max-clients 500 >/dev/null 2>&1 &
-nohup /usr/bin/badvpn-udpgw --listen-addr 127.0.0.1:7200 --max-clients 500 >/dev/null 2>&1 &
-nohup /usr/bin/badvpn-udpgw --listen-addr 127.0.0.1:7300 --max-clients 500 >/dev/null 2>&1 &
 
 # setting port ssh
 sed -i 's/Port 22/Port 22/g' /etc/ssh/sshd_config
@@ -332,14 +326,12 @@ wget -O hominfo "https://raw.githubusercontent.com/presult77/narassh/master/ssh/
 wget -O addhost "https://raw.githubusercontent.com/presult77/narassh/master/ssh/addhost.sh"
 wget -O about "https://raw.githubusercontent.com/presult77/narassh/master/ssh/about.sh"
 wget -O menu "https://raw.githubusercontent.com/presult77/narassh/master/ssh/menu.sh"
-wget -O trial-menu "https://raw.githubusercontent.com/presult77/narassh/master/trial/trial-menu.sh"
 wget -O addssh "https://raw.githubusercontent.com/presult77/narassh/master/ssh/addssh.sh"
 wget -O delssh "https://raw.githubusercontent.com/presult77/narassh/master/ssh/delssh.sh"
 wget -O member "https://raw.githubusercontent.com/presult77/narassh/master/ssh/member.sh"
 wget -O delexp "https://raw.githubusercontent.com/presult77/narassh/master/ssh/delexp.sh"
 wget -O cekssh "https://raw.githubusercontent.com/presult77/narassh/master/ssh/cekssh.sh"
 wget -O trialssh "https://raw.githubusercontent.com/presult77/narassh/master/ssh/trialssh.sh"
-wget -O trial-ssh "https://raw.githubusercontent.com/presult77/narassh/master/trial/trial-ssh.sh"
 wget -O restart "https://raw.githubusercontent.com/presult77/narassh/master/ssh/restart.sh"
 wget -O speedtest "https://raw.githubusercontent.com/presult77/narassh/master/ssh/speedtest_cli.py"
 wget -O info "https://raw.githubusercontent.com/presult77/narassh/master/ssh/info.sh"
@@ -360,6 +352,8 @@ wget -O portsshws "https://raw.githubusercontent.com/presult77/narassh/master/we
 wget -O running "https://raw.githubusercontent.com/presult77/narassh/master/ssh/running.sh"
 wget -O sslh-fix "https://raw.githubusercontent.com/presult77/narassh/master/sslh/sslh-fix"
 wget -O limit-bad "https://raw.githubusercontent.com/presult77/narassh/master/ssh/limit-bad.sh"
+wget -O fixbad "https://raw.githubusercontent.com/presult77/narassh/master/ssh/fixbad"
+
 
 chmod +x hominfo && sed -i -e 's/\r$//' hominfo
 
@@ -382,6 +376,7 @@ chmod +x cekssh && sed -i -e 's/\r$//' cekssh
 chmod +x restart && sed -i -e 's/\r$//' restart
 chmod +x speedtest
 chmod +x limit-bad
+chmod +x fixbad
 chmod +x info
 chmod +x about
 chmod +x autokill && sed -i -e 's/\r$//' autokill
@@ -402,11 +397,7 @@ echo "0 1 * * * root delexp" >> /etc/crontab
 echo "10 4 * * * root clearlog && sslh-fix-reboot" >> /etc/crontab
 echo "0 0 * * * root clearlog" >> /etc/crontab
 echo "0 12 * * * root clearlog" >> /etc/crontab
-echo "@reboot root nohup /usr/bin/badvpn-udpgw --listen-addr 127.0.0.1:7100 --max-clients 500 >/dev/null 2>&1 &" >> /etc/crontab
-echo "@reboot root nohup /usr/bin/badvpn-udpgw --listen-addr 127.0.0.1:7200 --max-clients 500 >/dev/null 2>&1 &" >> /etc/crontab
-echo "@reboot root nohup /usr/bin/badvpn-udpgw --listen-addr 127.0.0.1:7300 --max-clients 500 >/dev/null 2>&1 &" >> /etc/crontab
-echo "@reboot root /usr/bin/limit-bad" >> /etc/crontab
-
+echo "0 * * * * root /usr/bin/fixbad" >> /etc/crontab
 
 # remove unnecessary files
 cd
